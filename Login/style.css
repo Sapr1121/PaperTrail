@@ -1,0 +1,187 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('fondo.jpeg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.register-form {
+    display: none;
+}
+.rest-contra{
+    display: none;
+}
+
+.formulario {
+    width: 420px;
+    background: black;
+    color: #fff;
+    border-radius: 10px;
+    padding: 0px 40px;
+}
+
+.formulario h6{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.formulario h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.formulario .username {
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.username input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+
+}
+
+.username input::placeholder {
+    color: #fff;
+}
+
+
+
+.formulario .recuperar {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+
+.recuperar a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.recuperar a:hover{
+    text-decoration: underline;
+}
+
+.formulario .btn{
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 45px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+.formulario .registrarse{
+    font-size: 14.5px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.registrarse p a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.registrarse p a:hover {
+    text-decoration: underline;
+}
+
+
+.formulario form {
+    opacity: 1; 
+    visibility: visible; 
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out, padding 0.5s ease-in-out; 
+    padding: 30px 40px; 
+}
+
+.formulario form.hide {
+    opacity: 0; /* Reducimos la opacidad a cero para ocultar el formulario */
+    visibility: hidden; /* Ocultamos el formulario */
+    padding: 0; /* Eliminamos el relleno cuando el formulario está oculto */
+    pointer-events: none; /* Desactivamos los eventos en el formulario oculto */
+}
+.username select {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 10px 20px;
+    outline: none;
+    appearance: none; /* Oculta el estilo predeterminado del sistema */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+
+
+}
+
+/* Personaliza el fondo y el texto de las opciones */
+.username select {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 10px 20px;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+
+.username select:focus {
+    border-color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+.username select option {
+    background: black;
+    color: white;
+    padding: 10px;
+}
+
+.username select option:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
