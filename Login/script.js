@@ -17,23 +17,28 @@ document.addEventListener('DOMContentLoaded', function() {
         formulario.style.maxWidth = `${anchoFormulario}px`;
     }
 
-    // Evento para el formulario de registro
     registrarseLink.addEventListener('click', function(e) {
         e.preventDefault();
         setTimeout(() => {
-            formulario.style.transform = 'translateX(100%)'; // Mover a la derecha
+            formulario.style.transform = 'translateX(0%)'; // Mover a la derecha
             nuevoUsuario.classList.add('active-registro');
             restablecer.classList.remove('active-restablecer');
             loginForm.classList.add('hidden');
             ajustarTamañoFormulario(registerForm); // Ajustar tamaño para el formulario de registro
+            document.documentElement.scrollTop = registerForm.offsetTop;
+            // Esperar un poco antes de hacer scroll
+            setTimeout(() => {
+                window.scrollTo({ top: registerForm.offsetTop, behavior: 'smooth' });
+            }, 300); // Se da un pequeño retraso para que el formulario se renderice antes del scroll
         }, 10); // Pequeño retraso para permitir el renderizado
     });
+    
 
     // Evento para el formulario de restablecer contraseña
     recuperarLink.addEventListener('click', function(e) {
         e.preventDefault();
         setTimeout(() => {
-            formulario.style.transform = 'translateX(-100%)'; // Mover a la izquierda
+            formulario.style.transform = 'translateX(0%)'; // Mover a la izquierda
             restablecer.classList.add('active-restablecer');
             nuevoUsuario.classList.remove('active-registro');
             loginForm.classList.add('hidden');

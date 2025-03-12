@@ -18,13 +18,13 @@ body {
 .formulario {
     position: relative;
     width: 100%;
-    max-width: 400px;
+    max-width: 800px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.5s ease-in-out, height 0.5s ease-in-out;
-    height: auto; /* Ajustamos la altura automáticamente */
+    height: auto;
 }
 
 .login-form, .register-form, .rest-contra {
@@ -104,34 +104,50 @@ input:focus, select:focus {
     width: 100%;
     height: 100%;
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-    opacity: 0; /* Ocultos inicialmente */
-    pointer-events: none; /* No interactuables inicialmente */
-    transform: translateX(100%); /* Posición inicial fuera de la pantalla */
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(100%);
 }
 
 .nuevousuario {
-    left: 100%; /* Inicialmente a la derecha */
+    left: 100%;
 }
 
-
-
 .restablecer {
-    left: -100%; /* Inicialmente a la izquierda */
+    left: -100%;
 }
 
 .active-registro {
-    transform: translateX(-100%); /* Mover registro a la derecha */
-    opacity: 1; /* Mostrar */
-    pointer-events: all; /* Interactuable */
+    transform: translateX(-100%);
+    opacity: 1;
+    pointer-events: all;
 }
 
 .active-restablecer {
-    transform: translateX(100%); /* Mover restablecer a la izquierda */
-    opacity: 1; /* Mostrar */
-    pointer-events: all; /* Interactuable */
+    transform: translateX(100%);
+    opacity: 1;
+    pointer-events: all;
 }
 
 .hidden {
     opacity: 0;
     pointer-events: none;
+}
+
+/* Estilos para el formulario de registro en dos columnas */
+.register-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.register-form h6,
+.register-form h1,
+.register-form .btn,
+.register-form .registrarse {
+    grid-column: span 2;
+}
+
+.register-form .username {
+    margin-bottom: 0;
 }
