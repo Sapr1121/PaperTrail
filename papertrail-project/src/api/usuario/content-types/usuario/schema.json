@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "usuarios",
+  "info": {
+    "singularName": "usuario",
+    "pluralName": "usuarios",
+    "displayName": "Usuario",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Nombre": {
+      "type": "text",
+      "required": true
+    },
+    "Apellido": {
+      "type": "text",
+      "required": true
+    },
+    "cedula": {
+      "type": "biginteger",
+      "required": true
+    },
+    "genero": {
+      "type": "string",
+      "required": true
+    },
+    "fecha_nacimiento": {
+      "type": "date",
+      "required": true
+    },
+    "lugar_nacimiento": {
+      "type": "text",
+      "required": false
+    },
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "username": {
+      "type": "text",
+      "required": true,
+      "unique": true
+    },
+    "clave": {
+      "type": "password",
+      "required": true
+    },
+    "temaL_1": {
+      "type": "string"
+    },
+    "temaL_2": {
+      "type": "string"
+    }
+  }
+}

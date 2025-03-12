@@ -1,49 +1,48 @@
-const axios = require('axios');
+// test-strapi.js
+const STRAPI_URL = 'http://localhost:1337'; // URL de tu Strapi
 
-const STRAPI_URL = 'http://localhost:1337';
-
-// Función para obtener datos de la colección "Nombres"
-const fetchNombres = async () => {
-  try {
-    // Obtener todos los nombres de la API de Strapi
-    const response = await axios.get(`${STRAPI_URL}/api/nombres`);
-    const nombres = response.data.data;
-
-    // 1. Imprimir todos los nombres
-    console.log('Todos los nombres:', nombres);
-
-    // 2. Filtrar nombres que empiezan con "J"
-    const nombresConJ = nombres.filter(item => item.attributes.nombre.startsWith('J'));
-    console.log('Nombres que empiezan con "c":', nombresConJ);
-
-    // 3. Contar cuántos nombres hay en total
-    const cantidadNombres = nombres.length;
-    console.log('Cantidad de nombres:', cantidadNombres);
-
-  } catch (error) {
-    console.error('Error al obtener nombres:', error.response ? error.response.data : error.message);
-  }
+// Datos de prueba
+const userData = {
+  Nombre: 'Juan',
+  Apellido: 'Pérez',
+  cedula: '123456789',
+  genero: 'Masculino',
+  fecha_nacimiento: '1990-01-01',
+  lugar_nacimiento: 'Ciudad de México',
+  email: 'juan@example.com',
+  username: 'juanperez',
+  clave: 'password123',
+  temaL_1: 'Historia',
+  temaL_2: 'Ciencia'
 };
 
-// Función para crear un nuevo nombre
-const createNombre = async (nombre) => {
+// Función para enviar datos a Strapi
+const testStrapi = async () => {
   try {
-    const response = await axios.post(`${STRAPI_URL}/api/nombres`, {
-      data: { nombre },
+    console.log('Enviando datos de prueba a Strapi...');
+
+    const response = await fetch(`${STRAPI_URL}/api/usuarios`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ data: userData }), // Envía los datos dentro de un objeto "data"
     });
-    console.log('Nombre creado:', response.data);
+
+    console.log('Respuesta de Strapi:', response);
+
+    if (!response.ok) {
+      const errorData = await response.json(); // Obtener detalles del error
+      console.error('Error detallado de Strapi:', errorData);
+      throw new Error('Error al crear el usuario');
+    }
+
+    const data = await response.json();
+    console.log('Usuario creado en Strapi:', data);
   } catch (error) {
-    console.error('Error al crear el nombre:', error.response ? error.response.data : error.message);
+    console.error('Error al enviar datos a Strapi:', error.message);
   }
 };
 
-// Probar las funciones
-(async () => {
-  // Crear un nuevo nombre (opcional)
-  await createNombre('Juan Pérez');
-  await createNombre('María Gómez');
-  await createNombre('Carlos López');
-
-  // Obtener y procesar los nombres
-  await fetchNombres();
-})();
+// Ejecutar la prueba
+testStrapi();

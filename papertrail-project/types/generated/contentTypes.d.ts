@@ -425,6 +425,49 @@ export interface ApiNombreNombre extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiUsuarioUsuario extends Struct.CollectionTypeSchema {
+  collectionName: 'usuarios';
+  info: {
+    description: '';
+    displayName: 'Usuario';
+    pluralName: 'usuarios';
+    singularName: 'usuario';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Apellido: Schema.Attribute.Text & Schema.Attribute.Required;
+    cedula: Schema.Attribute.BigInteger & Schema.Attribute.Required;
+    clave: Schema.Attribute.Password & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    fecha_nacimiento: Schema.Attribute.Date & Schema.Attribute.Required;
+    genero: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::usuario.usuario'
+    > &
+      Schema.Attribute.Private;
+    lugar_nacimiento: Schema.Attribute.Text;
+    Nombre: Schema.Attribute.Text & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    temaL_1: Schema.Attribute.String;
+    temaL_2: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    username: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -936,6 +979,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::article.article': ApiArticleArticle;
       'api::nombre.nombre': ApiNombreNombre;
+      'api::usuario.usuario': ApiUsuarioUsuario;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
