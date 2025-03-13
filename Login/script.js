@@ -47,6 +47,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 10); // Pequeño retraso para permitir el renderizado
     });
 
+    
+
+
     // Evento para volver al inicio de sesión desde el registro
     const volverInicioDesdeRegistro = document.querySelector('.register-form .login-link');
     volverInicioDesdeRegistro.addEventListener('click', function (e) {
@@ -73,6 +76,23 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 10); // Pequeño retraso para permitir el renderizado
     });
 
+
+
+
+    const checkEmailExists = async (email) => {
+        try {
+            const response = await fetch(`${STRAPI_URL}/api/usuarios?filters[email][$eq]=${email}`);
+            if (!response.ok) {
+                throw new Error('Error al verificar el correo');
+            }
+            const data = await response.json();
+            return data.length > 0; // Retorna true si el correo ya existe
+        } catch (error) {
+            console.error('Error al verificar el correo:', error.message);
+            throw error;
+        }
+    };
+
     // Evento para capturar y enviar los datos del formulario de registro
     const btnRegistrarse = document.querySelector('.register-form .btn');
     if (btnRegistrarse) {
@@ -84,18 +104,26 @@ document.addEventListener('DOMContentLoaded', function () {
                 Nombre: document.querySelector('.register-form input[name="nombreUsuario"]')?.value,
                 Apellido: document.querySelector('.register-form input[name="apellidoUsuario"]')?.value,
                 cedula: document.querySelector('.register-form input[name="Cedula"]')?.value,
-                genero: document.querySelector('.register-form .seleccionG .opciones')?.value,
+                genero: document.querySelector('.register-form select[name="genero"]')?.value,
                 fecha_nacimiento: document.querySelector('.register-form input[type="date"]')?.value,
                 lugar_nacimiento: document.querySelector('.register-form input[placeholder="Lugar de nacimiento"]')?.value,
                 email: document.querySelector('.register-form input[type="email"]')?.value,
                 username: document.querySelector('.register-form input[placeholder="Usuario"]')?.value,
                 clave: document.querySelector('.register-form input[type="password"][placeholder="Contraseña"]')?.value,
-                temaL_1: document.querySelectorAll('.register-form .seleccionG .opciones')[1]?.value,
-                temaL_2: document.querySelectorAll('.register-form .seleccionG .opciones')[2]?.value,
+                temaL_1: document.querySelector('.register-form select[name="tema1"]')?.value,
+                temaL_2: document.querySelector('.register-form select[name="tema2"]')?.value,
             };
 
-            // Mostrar los valores en la consola (para depuración)
+            // Depuración: Verifica que los datos se están capturando correctamente
             console.log('Datos del usuario:', userData);
+
+            // Verifica si algún campo está vacío
+            for (const key in userData) {
+                if (!userData[key]) {
+                    console.error(`El campo ${key} está vacío.`);
+                    return;
+                }
+            }
 
             try {
                 // Enviar los datos a Strapi
@@ -103,13 +131,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log('Usuario creado en Strapi:', response);
 
                 // Mostrar un mensaje de éxito al usuario
-                alert('¡Registro exitoso!');
+                const messageDiv = document.querySelector('#register-message');
+                if (messageDiv) {
+                    messageDiv.textContent = '¡Registro exitoso!';
+                    messageDiv.style.color = 'green';
+                }
             } catch (error) {
                 console.error('Error al registrar el usuario:', error);
 
                 // Mostrar un mensaje de error al usuario
-                alert('Hubo un error al registrar el usuario. Por favor, intenta de nuevo.');
+                const messageDiv = document.querySelector('#register-message');
+                if (messageDiv) {
+                    messageDiv.textContent = 'Hubo un error al registrar el usuario.';
+                    messageDiv.style.color = 'red';
+                }
             }
         });
     }
+    
 });
