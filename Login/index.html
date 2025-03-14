@@ -6,11 +6,12 @@
     <title>PaperTrail</title>
     <link rel="icon" href="/img/icono.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
     <div class="formulario">
         
-        <form action="/login" method="POST"  class="login-form" >
+        <form action="" method=""  class="login-form" >
             <h6>PaperTrail</h6>
             <h1>Inicio de sesión</h1>
             <div class="username">
@@ -22,16 +23,23 @@
             </div>
             
             <div class="recuperar"><a href="#" class="recuperar-link">Olvido su contraseña?</a></div>
-            
-            <button type="submit" class="btn">Iniciar sesión</button>
+            <div id="login-message" class="message"></div>
+            <button type="button" class="btn">Iniciar sesión</button>
             <div class="registrarse">
                 <p>No tienes cuenta? <a href="#" class="registrarse-link">Registrarse</a></p>
             </div>
         </form>
 
 
+
+
+
+
+
+
+
         <div class="nuevousuario">
-            <form action="/registro" method="POST" class="register-form"> 
+            <form action="" method="" class="register-form"> 
                 <h6>PaperTrail</h6>
                 <h1>Registrarse</h1>
 
@@ -52,13 +60,13 @@
                 
 
 
-                <div class="username" id="seleccionG">
-                    <label for="opciones">Género:</label><br>
-                    <select id="opciones">
+                <div class="username" id="opciones">
+                    <label for="genero">Genero:</label><br>
+                    <select id="genero" name="genero">
                         <option value="" selected disabled>Selecciona tu género</option>
-                        <option value="1">Masculino</option>
-                        <option value="2">Femenino</option>
-                        <option value="3">Otro</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="femenino">Femenino</option>
+                        <option value="otro">Otro</option>
                     </select>
                 </div>
                 
@@ -103,29 +111,30 @@
                     <input type="password" name="contrasena" placeholder="Confirmar Contraseña">
                 </div>
 
-                <div class="username" id="seleccionG">
-                    <label for="opciones">Tema literario:</label><br>
-                    <select id="opciones">
+                <div class="username" id="opciones">
+                    <label for="opciones" >Tema literario:</label><br>
+                    <select id="opciones" name="tema1">
                         <option value="" selected disabled>Preferencia 1</option>
-                        <option value="1">Historia</option>
-                        <option value="2">Ciencia</option>
-                        <option value="3">Infantil</option>
+                        <option value="historia">Historia</option>
+                        <option value="ciencia">Ciencia</option>
+                        <option value="infantil">Infantil</option>
                     </select>
                 </div>
 
 
-                <div class="username" id="seleccionG">
+                <div class="username" id="opciones">
                     <label for="opciones">Tema literario:</label><br>
-                    <select id="opciones">
+                    <select id="opciones" name="tema2">
                         <option value="" selected disabled>Preferencia 2</option>
-                        <option value="1">Historia</option>
-                        <option value="2">Ciencia</option>
-                        <option value="3">Infantil</option>
+                        <option value="historia">Historia</option>
+                        <option value="ciencia">Ciencia</option>
+                        <option value="infantil">Infantil</option>
                     </select>
                 </div>
-
                 
-                <button type="submit" class="btn">Registrarse</button>
+                <div id="register-message" class="message"></div>
+                
+                <button type="button" class="btn">Registrarse</button>
                 <div class="registrarse">
                     <p>Ya recordaste tu contrasena? <a href="#" class="login-link">Inicio Sesion</a></p>
                 </div>
@@ -135,13 +144,14 @@
 
 
         <div class="restablecer">
-            <form  action="/restablecer-contrasena" method="POST" class="rest-contra">
+            <form  action="
+            " method="" class="rest-contra">
                 <h6>PaperTrail</h6>
                 <h1>Restablecer Contraseña</h1>
                 <div class="username">
                     <input type="email" name="email" placeholder="Email">
                 </div>
-                <button type="submit" class="btn">Restablecer</button>
+                <button type="button" class="btn">Restablecer</button>
                 <div class="registrarse">
                     <p>Volve al <a href="#" class="login-link">Inicio Sesion</a></p>
                 </div>
@@ -149,7 +159,6 @@
         </div>
     </div>
     
-    <script src="script.js"></script>
-    
+    <script type="module" src="main.js"></script>
 </body>
 </html>

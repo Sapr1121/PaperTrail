@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+export function setupAnimations() {
     const formulario = document.querySelector('.formulario');
     const loginForm = document.querySelector('.login-form');
     const registerForm = document.querySelector('.register-form');
@@ -17,58 +17,53 @@ document.addEventListener('DOMContentLoaded', function() {
         formulario.style.maxWidth = `${anchoFormulario}px`;
     }
 
-    registrarseLink.addEventListener('click', function(e) {
+    registrarseLink.addEventListener('click', function (e) {
         e.preventDefault();
         setTimeout(() => {
-            formulario.style.transform = 'translateX(0%)'; // Mover a la derecha
+            formulario.style.transform = 'translateX(0%)'; 
             nuevoUsuario.classList.add('active-registro');
             restablecer.classList.remove('active-restablecer');
             loginForm.classList.add('hidden');
-            ajustarTamañoFormulario(registerForm); // Ajustar tamaño para el formulario de registro
+            ajustarTamañoFormulario(registerForm); 
             document.documentElement.scrollTop = registerForm.offsetTop;
-            // Esperar un poco antes de hacer scroll
             setTimeout(() => {
                 window.scrollTo({ top: registerForm.offsetTop, behavior: 'smooth' });
-            }, 300); // Se da un pequeño retraso para que el formulario se renderice antes del scroll
-        }, 10); // Pequeño retraso para permitir el renderizado
+            }, 300);
+        }, 10);
     });
-    
 
-    // Evento para el formulario de restablecer contraseña
-    recuperarLink.addEventListener('click', function(e) {
+    recuperarLink.addEventListener('click', function (e) {
         e.preventDefault();
         setTimeout(() => {
-            formulario.style.transform = 'translateX(0%)'; // Mover a la izquierda
+            formulario.style.transform = 'translateX(0%)';
             restablecer.classList.add('active-restablecer');
             nuevoUsuario.classList.remove('active-registro');
             loginForm.classList.add('hidden');
-            ajustarTamañoFormulario(restContraForm); // Ajustar tamaño para el formulario de restablecimiento
-        }, 10); // Pequeño retraso para permitir el renderizado
+            ajustarTamañoFormulario(restContraForm);
+        }, 10);
     });
 
-    // Evento para volver al inicio de sesión desde el registro
     const volverInicioDesdeRegistro = document.querySelector('.register-form .login-link');
-    volverInicioDesdeRegistro.addEventListener('click', function(e) {
+    volverInicioDesdeRegistro.addEventListener('click', function (e) {
         e.preventDefault();
         setTimeout(() => {
-            formulario.style.transform = 'translateX(0)'; // Volver al centro
+            formulario.style.transform = 'translateX(0)';
             nuevoUsuario.classList.remove('active-registro');
             restablecer.classList.remove('active-restablecer');
             loginForm.classList.remove('hidden');
-            ajustarTamañoFormulario(loginForm); // Ajustar tamaño para el formulario de inicio de sesión
-        }, 10); // Pequeño retraso para permitir el renderizado
+            ajustarTamañoFormulario(loginForm);
+        }, 10);
     });
 
-    // Evento para volver al inicio de sesión desde restablecer
     const volverInicioDesdeRestablecer = document.querySelector('.rest-contra .login-link');
-    volverInicioDesdeRestablecer.addEventListener('click', function(e) {
+    volverInicioDesdeRestablecer.addEventListener('click', function (e) {
         e.preventDefault();
         setTimeout(() => {
-            formulario.style.transform = 'translateX(0)'; // Volver al centro
+            formulario.style.transform = 'translateX(0)';
             restablecer.classList.remove('active-restablecer');
             nuevoUsuario.classList.remove('active-registro');
             loginForm.classList.remove('hidden');
-            ajustarTamañoFormulario(loginForm); // Ajustar tamaño para el formulario de inicio de sesión
-        }, 10); // Pequeño retraso para permitir el renderizado
+            ajustarTamañoFormulario(loginForm);
+        }, 10);
     });
-});
+}

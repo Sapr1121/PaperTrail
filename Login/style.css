@@ -151,3 +151,46 @@ input:focus, select:focus {
 .register-form .username {
     margin-bottom: 0;
 }
+
+
+
+
+
+
+#register-message {
+    display: none; /* Ocultar por defecto */
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #e0f7fa; /* Fondo claro para mensajes de éxito */
+    color: #009688; /* Color de texto para mensajes de éxito */
+    border: 1px solid #009688; /* Borde para mensajes de éxito */
+}
+
+#register-message.error {
+    background-color: #ffebee; /* Fondo claro para mensajes de error */
+    color: #c62828; /* Color de texto para mensajes de error */
+    border: 1px solid #c62828; /* Borde para mensajes de error */
+}
+
+
+
+#login-message {
+    display: none; /* Ocultar por defecto */
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #e0f7fa; /* Fondo claro para mensajes de éxito */
+    color: #009688; /* Color de texto para mensajes de éxito */
+    border: 1px solid #009688; /* Borde para mensajes de éxito */
+}
+
+#login-message.error {
+    background-color: #ffebee; /* Fondo claro para mensajes de error */
+    color: #c62828; /* Color de texto para mensajes de error */
+    border: 1px solid #c62828; /* Borde para mensajes de error */
+}
