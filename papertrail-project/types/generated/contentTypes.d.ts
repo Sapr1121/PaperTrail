@@ -369,62 +369,6 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
-  collectionName: 'articles';
-  info: {
-    displayName: 'article';
-    pluralName: 'articles';
-    singularName: 'article';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    articles: Schema.Attribute.Text & Schema.Attribute.Required;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::article.article'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiNombreNombre extends Struct.CollectionTypeSchema {
-  collectionName: 'nombres';
-  info: {
-    displayName: 'Nombre';
-    pluralName: 'nombres';
-    singularName: 'nombre';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::nombre.nombre'
-    > &
-      Schema.Attribute.Private;
-    Nombre: Schema.Attribute.Text & Schema.Attribute.Required;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiUsuarioUsuario extends Struct.CollectionTypeSchema {
   collectionName: 'usuarios';
   info: {
@@ -439,7 +383,6 @@ export interface ApiUsuarioUsuario extends Struct.CollectionTypeSchema {
   attributes: {
     Apellido: Schema.Attribute.Text & Schema.Attribute.Required;
     cedula: Schema.Attribute.BigInteger & Schema.Attribute.Required;
-    clave: Schema.Attribute.Password & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -456,6 +399,7 @@ export interface ApiUsuarioUsuario extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     lugar_nacimiento: Schema.Attribute.Text;
     Nombre: Schema.Attribute.Text & Schema.Attribute.Required;
+    password: Schema.Attribute.Password & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     temaL_1: Schema.Attribute.String;
     temaL_2: Schema.Attribute.String;
@@ -923,10 +867,11 @@ export interface PluginUsersPermissionsUser
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
+    Apellido: Schema.Attribute.Text;
     blocked: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    cedula: Schema.Attribute.BigInteger & Schema.Attribute.Required;
     confirmationToken: Schema.Attribute.String & Schema.Attribute.Private;
     confirmed: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     createdAt: Schema.Attribute.DateTime;
@@ -937,12 +882,16 @@ export interface PluginUsersPermissionsUser
       Schema.Attribute.SetMinMaxLength<{
         minLength: 6;
       }>;
+    fecha_nacimiento: Schema.Attribute.Date & Schema.Attribute.Required;
+    genero: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'plugin::users-permissions.user'
     > &
       Schema.Attribute.Private;
+    lugar_nacimiento: Schema.Attribute.Text;
+    Nombre: Schema.Attribute.Text & Schema.Attribute.Required;
     password: Schema.Attribute.Password &
       Schema.Attribute.Private &
       Schema.Attribute.SetMinMaxLength<{
@@ -955,6 +904,8 @@ export interface PluginUsersPermissionsUser
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    temaL_1: Schema.Attribute.String;
+    temaL_2: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -977,8 +928,6 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::article.article': ApiArticleArticle;
-      'api::nombre.nombre': ApiNombreNombre;
       'api::usuario.usuario': ApiUsuarioUsuario;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
