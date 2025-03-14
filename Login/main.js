@@ -4,6 +4,24 @@ import { setupAnimations } from './animations.js'; // Importar las animaciones
 document.addEventListener('DOMContentLoaded', function () {
     setupAnimations(); // Configurar las animaciones
 
+    const toggleButtons = document.querySelectorAll('.toggle-password');
+
+    toggleButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            // Obtener el input de contraseña asociado
+            const passwordInput = button.previousElementSibling;
+
+            // Cambiar el tipo de input entre "password" y "text"
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                button.querySelector('.eye-icon').src = '/img/eye1.png'; // Cambiar a ojo abierto
+            } else {
+                passwordInput.type = 'password';
+                button.querySelector('.eye-icon').src = '/img/eye0.png'; // Cambiar a ojo cerrado
+            }
+        });
+    });
+
     // Evento para el botón de inicio de sesión
     const btnLogin = document.querySelector('.login-form .btn');
     if (btnLogin) {

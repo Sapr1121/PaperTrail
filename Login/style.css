@@ -191,3 +191,30 @@ input:focus, select:focus {
         transform: translateX(-50%) translateY(0);
     }
 }
+
+
+/* Estilos para el contenedor del campo de contraseña */
+.username {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* Estilos para el botón de ojo */
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 60%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* Estilos para el ícono de ojo */
+.eye-icon {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0);
+}
