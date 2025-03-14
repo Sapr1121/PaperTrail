@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Capturar los valores de los inputs
             const email = document.querySelector('.login-form input[type="email"]')?.value;
             const password = document.querySelector('.login-form input[type="password"]')?.value;
-            const messageDiv = document.querySelector('.login-form #login-message');
+            const messageDiv = document.querySelector('#login-message');
 
             if (!messageDiv) {
                 console.error('No se encontró el elemento .login-form #login-message');
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // Redirigir al usuario después de un inicio de sesión exitoso
                 setTimeout(() => {
-                    window.location.href = '/dashboard.html'; // Cambia esta URL según tu necesidad
+                    window.location.href = '/../home/homepage.html'; // Cambia esta URL según tu necesidad
                 }, 3000);
             } catch (error) {
                 console.error('Error al iniciar sesión:', error.message);
@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    
     // Evento para el botón de registro
     const btnRegistrarse = document.querySelector('.register-form .btn');
     if (btnRegistrarse) {
@@ -81,12 +82,31 @@ document.addEventListener('DOMContentLoaded', function () {
             };
 
             // Verifica si algún campo está vacío
+            let campoVacio = false;
             for (const key in userData) {
                 if (!userData[key]) {
                     console.error(`El campo ${key} está vacío.`);
-                    alert(`Por favor, completa el campo ${key}.`);
-                    return;
+                    campoVacio = true;
+
+                    // Mostrar mensaje de error en el messageDiv
+                    const messageDiv = document.querySelector('#register-message');
+                    if (messageDiv) {
+                        messageDiv.textContent = `Por favor, completa el campo ${key}.`;
+                        messageDiv.style.color = 'red';
+                        messageDiv.style.display = 'block';
+
+                        // Ocultar el mensaje después de 5 segundos
+                        setTimeout(() => {
+                            messageDiv.style.display = 'none';
+                        }, 5000);
+                    }
+                    break; // Detener el bucle si hay un campo vacío
                 }
+            }
+
+            // Si hay un campo vacío, no continuar con el registro
+            if (campoVacio) {
+                return;
             }
 
             try {
