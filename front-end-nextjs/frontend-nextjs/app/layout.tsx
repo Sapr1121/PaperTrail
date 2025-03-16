@@ -25,8 +25,8 @@ export default function RootLayout({
         className={`${urbanist.variable} antialiased`} // Aplica la fuente Urbanist
       >
         <Navbar/>
-        <Footer/>
         {children}
+        <Footer/>
       </body>
     </html>
   );
