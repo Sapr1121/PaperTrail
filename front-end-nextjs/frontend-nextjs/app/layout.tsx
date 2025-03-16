@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Urbanist } from "next/font/google"; // Importa la fuente Urbanist
 import "./globals.css";
 import Navbar from "@/components/navbar"
+import Footer from "@/components/footer"
 // Importa la fuente Urbanist
 const urbanist = Urbanist({
   variable: "--font-urbanist", // Nombre de la variable CSS para la fuente
@@ -24,6 +25,7 @@ export default function RootLayout({
         className={`${urbanist.variable} antialiased`} // Aplica la fuente Urbanist
       >
         <Navbar/>
+        <Footer/>
         {children}
       </body>
     </html>
