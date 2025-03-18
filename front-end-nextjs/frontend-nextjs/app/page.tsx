@@ -1,11 +1,13 @@
+import MainPage from "@/components/home";
 
 
 
 
-export default function RegisterPage() {
+export default function Main() {
   return(
     <>
-    </>
+    <MainPage/>
+    </>  
   )
   }
 
