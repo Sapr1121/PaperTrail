@@ -1,11 +1,13 @@
-import { createUser, loginUser } from './strapi.js'; // Importar funciones de Strapi
-import { setupAnimations } from './animations.js'; // Importar las animaciones
+import { createUser, loginUser } from './JS/strapi.js'; // Importar funciones de Strapi
+import { setupAnimations } from './JS/animations.js'; // Importar las animaciones
 
 document.addEventListener('DOMContentLoaded', function () {
     setupAnimations(); // Configurar las animaciones
+    
+   
+
 
     const toggleButtons = document.querySelectorAll('.toggle-password');
-
     toggleButtons.forEach(button => {
         button.addEventListener('click', function () {
             // Obtener el input de contraseña asociado
@@ -161,6 +163,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // Limpiar el formulario después de un registro exitoso
                 document.querySelector('.register-form').reset();
+                // Redirigir al usuario después de un inicio de sesión exitoso
+                setTimeout(() => {
+                    window.location.href = '/../home/homepage.html'; // Cambia esta URL según tu necesidad
+                }, 3000);
             } catch (error) {
                 console.error('Error al registrar el usuario:', error);
 
@@ -206,4 +212,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Agregar el evento input a ambos campos
     contrasenaInput.addEventListener('input', validarContrasenas);
     confirmarContrasenaInput.addEventListener('input', validarContrasenas);
+
+
 });

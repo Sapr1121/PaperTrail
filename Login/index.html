@@ -38,23 +38,14 @@
         </form>
 
 
-
-
-
-
-
-
-
         <div class="nuevousuario">
             <form action="" method="" class="register-form"> 
                 <h6>PaperTrail</h6>
                 <h1>Registrarse</h1>
-
                 <div class="username">
                     <label>Nombre:</label>
                     <input type="text" name="nombreUsuario" placeholder="Nombre ">
                 </div>
-
                 <div class="username">
                     <label>Apellido:</label>
                     <input type="text" name="apellidoUsuario" placeholder="Apellido ">
@@ -77,35 +68,23 @@
                     </select>
                 </div>
                 
-
-
                 <div class="username">
-
                     <label>Fecha de nacimiento:</label>
-    
                     <input type="date" class="box">
-    
                 </div>
-
                 <div class="username">
                     <label>Lugar de nacimiento:</label>
                     <input type="" class="box" placeholder="Lugar de nacimiento">
-    
                 </div>
                 
                 <div class="username">
                     <label>Email:</label>
                     <input type="email" name="email" placeholder="Email">
                 </div>
-
                 <div class="username">
                     <label>Usario:</label>
                     <input type="" name="email" placeholder="Usuario">
                 </div>
-
-
-    
-
                 <div class="username">
                     <label>Contrasena:</label>
                     <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña">
@@ -154,20 +133,23 @@
 
 
         <div class="restablecer">
-            <form  action="
-            " method="" class="rest-contra">
+            <form id="reset-password-form" class="rest-contra">
                 <h6>PaperTrail</h6>
                 <h1>Restablecer Contraseña</h1>
                 <div class="username">
-                    <input type="email" name="email" placeholder="Email">
+                    <input type="email" id="reset-email" name="email" placeholder="Email">
                 </div>
-                <button type="button" class="btn">Restablecer</button>
+                
+                <!-- Agregar este div para los mensajes -->
+                <div id="reset-message" style="display: none; color: red;"></div>
+            
+                <button type="button" class="btn" id="reset-password-btn">Restablecer</button>
                 <div class="registrarse">
-                    <p>Volve al <a href="#" class="login-link">Inicio Sesion</a></p>
+                    <p>Vuelve al <a href="#" class="login-link">Inicio Sesión</a></p>
                 </div>
             </form>
+            
         </div>
-    </div>
     
     <script type="module" src="main.js"></script>
 </body>
