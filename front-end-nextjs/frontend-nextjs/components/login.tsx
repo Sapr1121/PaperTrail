@@ -1,10 +1,19 @@
-"use client"
-import { Mail, Lock} from "lucide-react";
+"use client";
+import { useState, useEffect } from "react";
+import { Mail, Lock } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 const Login = () => {
-    const router = useRouter();
+  const router = useRouter();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) return null; // Evita el error de hidratación
+
   return (
     <div className="flex flex-col md:flex-row min-h-screen">
       {/* Sección izquierda - Logo, Beneficios */}
@@ -46,9 +55,10 @@ const Login = () => {
             </div>
           </div>
           <button className="w-full bg-orange-400 text-white py-2 rounded-md mt-4">Ingresar</button>
-                <p className="text-xs md:text-sm text-gray-600 text-center mt-2 cursor-pointer">¿Olvidaste tu contraseña?</p>
-                <p className="text-xs md:text-sm text-gray-600 text-center mt-4">¿No tienes cuenta? <span className="text-blue-500 cursor-pointer" onClick={()=>router.push("/register")}>REGÍSTRATE</span></p>
-                
+          <p className="text-xs md:text-sm text-gray-600 text-center mt-2 cursor-pointer">¿Olvidaste tu contraseña?</p>
+          <p className="text-xs md:text-sm text-gray-600 text-center mt-4">
+            ¿No tienes cuenta? <span className="text-blue-500 cursor-pointer" onClick={() => router.push("/register")}>REGÍSTRATE</span>
+          </p>
         </div>
       </div>
     </div>
