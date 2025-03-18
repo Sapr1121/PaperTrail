@@ -1,11 +1,14 @@
-import { Mail, Lock} from "lucide-react";
+"use client"
+import { Mail, Lock, Calendar, User } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Register = () => {
+  const router = useRouter();
   return (
     <div className="flex flex-col md:flex-row min-h-screen">
       {/* Sección izquierda - Logo, Beneficios */}
-      <div className="w-full md:w-3/5 bg-[#3C88A3] flex flex-col items-center justify-center p-6 md:p-10 text-white">
+      <div className="w-full md:w-3/5 bg-[#3C88A3] flex flex-col items-center justify-center p-6 md:p-10 text-white sticky top-0 h-screen">
         <Image 
           src="/images/icono.png" 
           alt="Logo" 
@@ -23,6 +26,7 @@ const Register = () => {
         </div>
       </div>
 
+
       {/* Sección derecha - Formulario */}
       <div className="w-full md:w-2/5 flex flex-col items-center justify-center p-6 md:p-10">
         <h1 className="text-2xl md:text-3xl font-semibold text-orange-400 mb-6 text-center">CREAR UN USUARIO</h1>
@@ -37,10 +41,45 @@ const Register = () => {
             <input type="text" className="w-full border rounded-md p-2 mt-1 outline-none text-sm" placeholder="Tu apellido" />
           </div>
           <div>
+            <label className="block text-sm font-medium">Cédula</label>
+            <input type="text" className="w-full border rounded-md p-2 mt-1 outline-none text-sm" placeholder="Tu cédula" />
+          </div>
+          <div>
+            <label className="block text-sm font-medium">Género</label>
+            <select className="w-full border rounded-md p-2 mt-1 outline-none text-sm">
+              <option value="">Selecciona tu género</option>
+              <option value="masculino">Masculino</option>
+              <option value="femenino">Femenino</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div>
+            <label className="block text-sm font-medium">Fecha de nacimiento</label>
+            <div className="flex items-center border rounded-md p-2 mt-1">
+              <Calendar size={18} className="text-gray-500 mr-2" />
+              <input type="date" className="flex-1 outline-none text-sm" />
+            </div>
+          </div>
+          <div>
+            <label className="block text-sm font-medium">Lugar de Nacimiento</label>
+            <input type="text" className="w-full border rounded-md p-2 mt-1 outline-none text-sm" placeholder="Ciudad o país" />
+          </div>
+          <div>
+            <label className="block text-sm font-medium">Dirección de envío</label>
+            <input type="text" className="w-full border rounded-md p-2 mt-1 outline-none text-sm" placeholder="Tu dirección" />
+          </div>
+          <div>
             <label className="block text-sm font-medium">Correo Electrónico</label>
             <div className="flex items-center border rounded-md p-2 mt-1">
               <Mail size={18} className="text-gray-500 mr-2" />
               <input type="email" className="flex-1 outline-none text-sm" placeholder="Tu correo" />
+            </div>
+          </div>
+          <div>
+            <label className="block text-sm font-medium">Usuario</label>
+            <div className="flex items-center border rounded-md p-2 mt-1">
+              <User size={18} className="text-gray-500 mr-2" />
+              <input type="text" className="flex-1 outline-none text-sm" placeholder="Tu usuario" />
             </div>
           </div>
           <div>
@@ -50,9 +89,36 @@ const Register = () => {
               <input type="password" className="flex-1 outline-none text-sm" placeholder="Tu contraseña" />
             </div>
           </div>
+          <div>
+            <label className="block text-sm font-medium">Validar Contraseña</label>
+            <div className="flex items-center border rounded-md p-2 mt-1">
+              <Lock size={18} className="text-gray-500 mr-2" />
+              <input type="password" className="flex-1 outline-none text-sm" placeholder="Repite tu contraseña" />
+            </div>
+          </div>
+          <div>
+            <label className="block text-sm font-medium">Tema Literario de preferencia 1</label>
+            <select className="w-full border rounded-md p-2 mt-1 outline-none text-sm">
+              <option value="">Selecciona un tema</option>
+              <option value="ficcion">Ficción</option>
+              <option value="no-ficcion">No Ficción</option>
+              <option value="fantasia">Fantasía</option>
+              <option value="ciencia">Ciencia</option>
+            </select>
+          </div>
+          <div>
+            <label className="block text-sm font-medium">Tema Literario de preferencia 2</label>
+            <select className="w-full border rounded-md p-2 mt-1 outline-none text-sm">
+              <option value="">Selecciona un tema</option>
+              <option value="ficcion">Ficción</option>
+              <option value="no-ficcion">No Ficción</option>
+              <option value="fantasia">Fantasía</option>
+              <option value="ciencia">Ciencia</option>
+            </select>
+          </div>
           <button className="w-full bg-orange-400 text-white py-2 rounded-md mt-4">Registrarse</button>
           <p className="text-xs text-gray-600 text-center mt-4">
-            ¿Ya tienes una cuenta? <span className="text-blue-500 cursor-pointer">INICIA SESIÓN</span>
+            ¿Ya tienes una cuenta? <span className="text-blue-500 cursor-pointer" onClick={()=>router.push("/login")}>INICIA SESIÓN</span>
           </p>
         </div>
       </div>

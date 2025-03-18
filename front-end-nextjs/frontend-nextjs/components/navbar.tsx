@@ -36,7 +36,7 @@ const Navbar = () => {
 
             {/* Íconos de usuario y carrito */}
             <div className="flex items-center space-x-4 text-white">
-                <User strokeWidth={1} className="cursor-pointer" onClick={() => router.push("/user")} />
+                <User strokeWidth={1} className="cursor-pointer" onClick={() => router.push("/login")} />
                 <ShoppingCart strokeWidth={1} className="cursor-pointer" onClick={() => router.push("/cart")} />
             </div>
         </div>

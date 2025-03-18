@@ -28,7 +28,7 @@ const Footer = () => {
 
                 {/* Logo y nombre a la derecha */}
                 <div className="flex items-center mt-4 sm:mt-0">
-                    <h1 className="text-2xl cursor-pointer">
+                    <h1 className="text-2xl cursor-pointer" onClick={()=>router.push("/")}>
                         PAPER <span className="font-bold">TRAIL</span>
                     </h1>
                     <Image
