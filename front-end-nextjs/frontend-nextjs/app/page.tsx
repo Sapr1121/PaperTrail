@@ -1,7 +1,17 @@
-import { Button } from "@/components/ui/button";
+import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
+import Register from "@/components/register";
 
-export default function Home() {
-  return (
-        ""
-        );
-}
+
+
+export default function RegisterPage() {
+  return(
+    <>
+    <Navbar/>
+    <Register />
+    <Footer/>
+    </>
+  )
+  }
+
+
