@@ -5,6 +5,24 @@ import { useState } from "react";
 
 const Home = () => {
   const [showSubscribe, setShowSubscribe] = useState(true);
+  
+  {/*Inicio funciones boton suscripción */}
+  // Maneja la transición de desvanecimiento
+  const handleMouseEnter = (e) => {
+    const element = e.target as HTMLElement; // Asegura que target es un HTMLElement
+    element.classList.add('scale-105');
+  };
+  
+  const handleMouseLeave = (e) => {
+    const element = e.target as HTMLElement; // Asegura que target es un HTMLElement
+    element.classList.remove('scale-105');
+  };
+
+  const handleClose = () => {
+    // Animar el desvanecimiento antes de esconder el componente
+    setShowSubscribe(false);
+  };
+  {/*Fin funciones boton suscripción */}
   return (
     <div className="min-h-screen bg-white">
 
@@ -40,16 +58,18 @@ const Home = () => {
           </div>
         ))}
       </div>
-
-      {/* Botón de suscripción flotante */}
-      {showSubscribe && (
-        <div className="fixed bottom-4 right-4 bg-orange-500 text-white px-4 py-2 rounded-md shadow-lg flex items-center gap-2 cursor-pointer">
-          📩 SUSCRÍBETE!!!
-          <button className="cursor-pointer" onClick={() => setShowSubscribe(false)}>
-            <X size={18} />
-          </button>
-        </div>
-      )}
+      <div
+      className={`fixed bottom-4 right-4 bg-orange-500 text-white px-4 py-2 rounded-md shadow-lg flex items-center gap-2 cursor-pointer transition-all duration-300 ${
+        showSubscribe ? 'opacity-100' : 'opacity-0 pointer-events-none'
+      }`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      📩 SUSCRÍBETE!!!
+      <button className="cursor-pointer" onClick={handleClose}>
+        <X size={18} />
+      </button>
+      </div>
     </div>
   );
 };
