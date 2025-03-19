@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 setTimeout(() => {
                     window.location.href = '/../home/homepage.html'; // Cambia esta URL según tu necesidad
                 }, 3000);
-            } catch (error) {
+            } catch (error) { 
                 console.error('Error al iniciar sesión:', error.message);
     
                 // Mostrar un mensaje de error al usuario
