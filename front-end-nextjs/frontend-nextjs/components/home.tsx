@@ -1,9 +1,11 @@
 "use client";
 import { X } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 
 const Home = () => {
+  const router = useRouter();
   const [showSubscribe, setShowSubscribe] = useState(true);
   
   {/*Inicio funciones boton suscripción */}
@@ -58,7 +60,7 @@ const Home = () => {
           </div>
         ))}
       </div>
-      <div
+      <div onClick={()=>router.push("/register")}
       className={`fixed bottom-4 right-4 bg-orange-500 text-white px-4 py-2 rounded-md shadow-lg flex items-center gap-2 cursor-pointer transition-all duration-300 ${
         showSubscribe ? 'opacity-100' : 'opacity-0 pointer-events-none'
       }`}
