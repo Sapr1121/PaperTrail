@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-const CreateAdmin = () => {
+const EditAdmin = () => {
   const [formData, setFormData] = useState({
     nombre: "",
     apellido: "",
@@ -29,10 +29,10 @@ const CreateAdmin = () => {
       <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
         {/* Sección Izquierda */}
         <div className="flex flex-col items-center">
-            <h2 className="mt-10 text-xl font-bold italic text-center">CREAR</h2>
+            <h2 className="mt-10 text-xl font-bold italic text-center">EDITAR</h2>
             <h2 className="mb-8 text-xl font-bold italic text-center">ADMINISTRADOR</h2>
             <div className="w-32 h-32 bg-gray-200 flex items-center justify-center rounded-full">
-                <span className="justify-center text-gray-500 text-6xl">+</span>
+                <span className="justify-center text-gray-500 text-6xl">/</span>
             </div>
         </div>
 
@@ -91,7 +91,10 @@ const CreateAdmin = () => {
 
             {/* Botón de Enviar */}
             <button type="submit" className="cursor-pointer w-full bg-orange-500 text-white py-2 rounded-md mt-4">
-              CREAR ADMINISTRADOR
+              EDITAR ADMINISTRADOR
+            </button>
+            <button type="submit" className="cursor-pointer w-full bg-blue-500 text-white py-2 rounded-md">
+              CANCELAR
             </button>
           </div>
         </form>
@@ -100,4 +103,4 @@ const CreateAdmin = () => {
   );
 };
 
-export default CreateAdmin;
+export default EditAdmin;
