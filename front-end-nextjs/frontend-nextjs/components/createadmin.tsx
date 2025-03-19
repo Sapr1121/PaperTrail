@@ -25,7 +25,7 @@ const CreateAdmin = () => {
   };
 
   return (
-    <div className="max-w-5xl mx-auto p-6">
+    <div className="flex w-full max-w-5xl mx-auto p-6 justify-center">
       <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
         {/* Sección Izquierda */}
         <div className="flex flex-col items-center">
@@ -40,7 +40,7 @@ const CreateAdmin = () => {
         <div className="hidden md:block w-px bg-gray-300 h-full"></div>
 
         {/* Formulario */}
-        <form onSubmit={handleSubmit} className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
+        <form onSubmit={handleSubmit} className="w-full lg:w-2/3 bg-white p-6 rounded-lg shadow-md grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {/* Columna 1 */}
           <div className="space-y-3">
             <label className="block text-sm font-semibold">Nombre</label>
