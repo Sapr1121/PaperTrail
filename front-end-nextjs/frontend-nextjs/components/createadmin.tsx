@@ -90,7 +90,7 @@ const CreateAdmin = () => {
               className="border border-gray-400 border-solid rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-orange-500" />
 
             {/* Botón de Enviar */}
-            <button type="submit" className="cursor-pointer w-full bg-orange-500 text-white py-2 rounded-md mt-4">
+            <button type="submit" className="cursor-pointer w-full bg-orange-500 text-white py-2 rounded-md mt-4 transition-transform duration-300 transform hover:scale-105">
               CREAR ADMINISTRADOR
             </button>
           </div>

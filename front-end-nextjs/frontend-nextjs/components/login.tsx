@@ -54,10 +54,12 @@ const Login = () => {
               <input type="password" className="flex-1 outline-none text-sm" placeholder="Tu contraseña" />
             </div>
           </div>
-          <button className="w-full bg-orange-400 text-white py-2 rounded-md mt-4">Ingresar</button>
-          <p className="text-xs md:text-sm text-gray-600 text-center mt-2 cursor-pointer">¿Olvidaste tu contraseña?</p>
+          <button className="w-full bg-orange-400 text-white py-2 rounded-md mt-4 transition-transform duration-300 transform hover:scale-105 cursor-pointer">Ingresar</button>
+          <p className="text-xs md:text-sm text-gray-600 text-center mt-2 transition-transform duration-300 transform hover:scale-105 cursor-pointer">¿Olvidaste tu contraseña?</p>
           <p className="text-xs md:text-sm text-gray-600 text-center mt-4">
-            ¿No tienes cuenta? <span className="text-blue-500 cursor-pointer" onClick={() => router.push("/register")}>REGÍSTRATE</span>
+            ¿No tienes cuenta? 
+            <span className="text-blue-500 cursor-pointer hover:text-blue-700 hover:underline transition-colors duration-300" onClick={() => router.push("/register")}
+              >REGÍSTRATE</span>
           </p>
         </div>
       </div>

@@ -54,11 +54,11 @@ const EditarContrasena = () => {
 
           {/* Botones */}
           <div className="col-span-2 flex justify-end gap-4 mt-4">
-            <button className="bg-orange-600 text-white px-4 py-2 rounded-md">
-              EDITAR ROOT
+            <button className="bg-orange-600 text-white px-4 py-2 rounded-md transition-transform duration-300 transform hover:scale-105 cursor-pointer">
+              CAMBIAR CONTRASEÑA
             </button>
-            <button className="bg-blue-600 text-white px-4 py-2 rounded-md">
-              Cancelar
+            <button className="bg-blue-600 text-white px-4 py-2 rounded-md transition-transform duration-300 transform hover:scale-105 cursor-pointer">
+              CANCELAR
             </button>
           </div>
         </form>

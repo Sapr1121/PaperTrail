@@ -16,10 +16,13 @@ const GestionRoot = () => {
           <p className="font-semibold">Administradores</p>
           <p className="text-sm text-gray-600">Cantidad: </p>
         </div>
-        <button className="bg-green-500 text-white px-4 py-2 rounded-md text-sm transition-transform duration-300 transform hover:scale-110 cursor-pointer" onClick={() => router.push("/createadmin")}>
-          Crear administrador
+        <button
+            className="bg-green-500 text-white px-4 py-2 rounded-md text-sm transition-transform duration-300 transform hover:scale-105 cursor-pointer"
+            onClick={() => router.push("/createadmin")}
+          >
+            Crear administrador
         </button>
-      </div>
+        </div>
 
       {/* Lista de administradores */}
       <NewAdmin />

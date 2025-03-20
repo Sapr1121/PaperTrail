@@ -1,4 +1,4 @@
-import EditarContrasena from "@/components/editpassword";
+import EditarContrasena from "@/components/editpasswordadmin";
 
 
 export default function Page(){

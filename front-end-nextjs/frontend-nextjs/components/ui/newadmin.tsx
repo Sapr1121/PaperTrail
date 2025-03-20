@@ -14,8 +14,8 @@ const NewAdmin = () =>{
           {/* Botones */}
 
           <div className="flex space-x-2">
-            <button className="bg-red-500 text-white px-3 py-1 rounded-md text-sm">ELIMINAR</button>
-            <button className="bg-blue-500 text-white px-3 py-1 rounded-md text-sm">EDITAR</button>
+            <button className="bg-red-500 text-white px-3 py-1 rounded-md text-sm transition-transform duration-300 transform hover:scale-105 cursor-pointer">ELIMINAR</button>
+            <button className="bg-blue-500 text-white px-3 py-1 rounded-md text-sm transition-transform duration-300 transform hover:scale-105 cursor-pointer">EDITAR</button>
           </div>
         </div>
     </div>

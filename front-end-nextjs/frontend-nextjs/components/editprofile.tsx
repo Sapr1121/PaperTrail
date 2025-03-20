@@ -196,11 +196,11 @@ const EditProfile = () => {
 
         {/* Botones */}
         <div className="flex justify-between mt-6">
-          <button className="bg-gray-400 text-white px-4 py-2 rounded-md">
+          <button className="bg-gray-400 text-white px-4 py-2 rounded-md transition-transform duration-300 transform hover:scale-105 cursor-pointer">
             CANCELAR
           </button>
-          <button type="submit" className="bg-orange-400 text-white px-4 py-2 rounded-md">
-            GUARDAR LOS CAMBIOS
+          <button type="submit" className="bg-orange-400 text-white px-4 py-2 rounded-md transition-transform duration-300 transform hover:scale-105 cursor-pointer">
+            GUARDAR CAMBIOS
           </button>
         </div>
       </form>
