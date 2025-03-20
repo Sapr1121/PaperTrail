@@ -135,9 +135,9 @@ const Register = () => {
             </div>
           </div>
 
-          <button className="w-full bg-orange-400 text-white py-2 rounded-md mt-4">Registrarse</button>
+          <button className="w-full bg-orange-400 text-white py-2 rounded-md mt-4 transition-transform duration-300 transform hover:scale-105 cursor-pointer" onClick={()=>router.push("/")}>Registrarse</button>
           <p className="text-xs text-gray-600 text-center mt-4">
-            ¿Ya tienes una cuenta? <span className="text-blue-500 cursor-pointer" onClick={()=>router.push("/login")}>INICIA SESIÓN</span>
+            ¿Ya tienes una cuenta? <span className="text-blue-500 cursor-pointer hover:text-blue-700 hover:underline transition-colors duration-300" onClick={()=>router.push("/login")}>INICIA SESIÓN</span>
           </p>
         </div>
       </div>
